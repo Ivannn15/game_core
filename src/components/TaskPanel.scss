@@ -1,0 +1,36 @@
+.task-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.task-panel header h1 {
+  font-size: 1.2rem;
+}
+
+.task-panel header p {
+  font-size: 0.95rem;
+}
+
+.task-panel ul li {
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.task-panel .hints ul,
+.task-panel .tests ul {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.task-panel .hints li,
+.task-panel .tests li {
+  margin-bottom: 0.4rem;
+}
+
+.task-panel button {
+  width: 100%;
+}

@@ -1,0 +1,28 @@
+.level-list {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.level-list h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.level-list ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.level-list li button {
+  width: 100%;
+  text-align: left;
+  background: #1d4ed8;
+  color: #f9fafb;
+}
+
+.level-list li.active button {
+  background: #22d3ee;
+  color: #0f172a;
+}
