@@ -1,0 +1,37 @@
+{
+  "name": "game_core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test:levels": "tsx scripts/run-level-tests.ts",
+    "levels:export": "tsx scripts/levels-cli.ts export",
+    "levels:import": "tsx scripts/levels-cli.ts import"
+  },
+  "dependencies": {
+    "@codemirror/lang-python": "^6.1.6",
+    "@uiw/react-codemirror": "^4.23.7",
+    "classnames": "^2.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "skulpt": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "sass": "^1.69.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}

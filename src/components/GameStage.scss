@@ -1,0 +1,40 @@
+.game-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.game-stage canvas {
+  border-radius: 16px;
+  background: #0b1120;
+  border: 4px solid #2563eb;
+}
+
+.game-stage .controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.game-stage .controls button {
+  min-width: 120px;
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.game-stage .result {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.game-stage .result.success {
+  background: #22c55e;
+  color: #0f172a;
+}
+
+.game-stage .result.fail {
+  background: #f87171;
+  color: #0f172a;
+}
