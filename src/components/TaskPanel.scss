@@ -7,6 +7,40 @@
   padding: 1rem;
 }
 
+.task-panel .task {
+  background: #111827;
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task-panel .task h2 {
+  font-size: 1.05rem;
+}
+
+.task-panel .task-example pre {
+  background: #0b1120;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.task-panel .task-explanation h3,
+.task-panel .task-example h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.task-panel .task-explanation p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 .task-panel header h1 {
   font-size: 1.2rem;
 }

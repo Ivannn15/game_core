@@ -18,6 +18,20 @@ export function TaskPanel({ level, hints, onHintClick, onToggleTests, showTests,
         <h1>{level.title}</h1>
         <p>{level.story}</p>
       </header>
+      <section className="task">
+        <h2>{uiText.taskTitle}</h2>
+        <p>{level.task.instruction}</p>
+        <div className="task-example">
+          <h3>{uiText.taskExampleTitle}</h3>
+          <pre>
+            <code>{level.task.example}</code>
+          </pre>
+        </div>
+        <div className="task-explanation">
+          <h3>{uiText.taskConceptTitle}</h3>
+          <p>{level.task.explanation}</p>
+        </div>
+      </section>
       <section>
         <h3>{uiText.goalsTitle}</h3>
         <ul>

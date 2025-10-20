@@ -8,6 +8,11 @@ export interface Level {
   id: string;
   title: string;
   story: string;
+  task: {
+    instruction: string;
+    example: string;
+    explanation: string;
+  };
   map: {
     rows: number;
     cols: number;
@@ -41,6 +46,11 @@ export const levels: Level[] = [
     id: 'lvl-001-move-intro',
     title: 'Монета рядом',
     story: 'Герой проснулся и увидел монету. Дойди до неё простыми шагами.',
+    task: {
+      instruction: 'Напиши код, который проведёт героя по клеткам к монете и подберёт её командой pick().',
+      example: `move_up()\nmove_up()\nmove_right()\npick()`,
+      explanation: 'Тренируем простую последовательность движений: команды move_up() и move_right() перемещают героя, а pick() берёт предмет на клетке.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -79,6 +89,11 @@ export const levels: Level[] = [
     id: 'lvl-002-maze',
     title: 'Извилистый коридор',
     story: 'Перед тобой короткий лабиринт. Пройди аккуратно, не врежься в стену.',
+    task: {
+      instruction: 'Составь программу, которая проведёт героя по коридору до монеты и не позволит врезаться в стену.',
+      example: `move_right()\nmove_right()\nmove_right()\nmove_right()\nmove_right()\nmove_down()\nmove_down()\nmove_left()\npick()`,
+      explanation: 'Учимся планировать маршрут по клеткам и помнить, что герой не может проходить сквозь стены — проверяй путь заранее.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -116,6 +131,11 @@ export const levels: Level[] = [
     id: 'lvl-003-variables',
     title: 'Шаги из коробочки',
     story: 'У героя есть число шагов в переменной. Дойди до монеты!',
+    task: {
+      instruction: 'Используй значение переменной steps, чтобы сделать нужное количество шагов вправо и взять монету.',
+      example: `steps = 3\nfor _ in range(steps):\n    move_right()\npick()`,
+      explanation: 'Переменная хранит число шагов, и мы можем использовать его внутри цикла, чтобы не повторять одинаковые команды вручную.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -153,6 +173,11 @@ export const levels: Level[] = [
     id: 'lvl-004-types',
     title: 'Привет, монета!',
     story: 'Научи героя здороваться и собирать монету.',
+    task: {
+      instruction: 'Скажи привет с помощью say("Привет") и собери монету, дойдя до неё правильными шагами.',
+      example: `say("Привет")\nmove_right()\nmove_up()\nmove_up()\npick()`,
+      explanation: 'Команда say выводит реплику героя, а затем мы повторяем знакомые движения и закрепляем работу со строками.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -190,6 +215,11 @@ export const levels: Level[] = [
     id: 'lvl-005-if',
     title: 'Поверни, если стена',
     story: 'В коридоре есть поворот. Реши, куда идти, если впереди стена.',
+    task: {
+      instruction: 'Напиши программу, которая проверяет стену перед героем и выбирает безопасный путь к монете.',
+      example: `move_right()\nmove_right()\nif is_wall_ahead():\n    move_down()\nfor _ in range(6):\n    move_right()\nmove_up()\nmove_up()\npick()`,
+      explanation: 'Осваиваем условный оператор if: он помогает реагировать на препятствия с помощью проверки is_wall_ahead().' 
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -236,6 +266,11 @@ export const levels: Level[] = [
     id: 'lvl-006-for-loop',
     title: 'Четыре шага вперёд',
     story: 'Коридор одинаковый. Повтори шаги с помощью цикла for.',
+    task: {
+      instruction: 'Используй цикл for, чтобы повторить движение вправо несколько раз и дойти до монеты.',
+      example: `for _ in range(4):\n    move_right()\npick()`,
+      explanation: 'Цикл for позволяет не дублировать одинаковые команды: range(4) запускает тело цикла четыре раза подряд.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -273,6 +308,11 @@ export const levels: Level[] = [
     id: 'lvl-007-while-loop',
     title: 'До двери',
     story: 'Иди вперёд, пока не увидишь дверь. Не застревай!',
+    task: {
+      instruction: 'Напиши цикл while, который ведёт героя вперёд, пока не дойдёшь до ключа и двери, а затем открой её.',
+      example: `steps = 0\nwhile not see_item("right") and steps < 12:\n    move_right()\n    steps += 1\nmove_right()\npick()\nwhile not at_goal() and steps < 24:\n    move_right()\n    steps += 1\nopen()`,
+      explanation: 'Цикл while повторяет команды, пока условие истинно, поэтому мы добавляем счётчик steps, чтобы ограничить количество повторений и не зациклиться.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -319,6 +359,11 @@ export const levels: Level[] = [
     id: 'lvl-008-functions',
     title: 'Танец лестницы',
     story: 'Создай функцию, которая делает шаг вверх и вправо. Повтори её.',
+    task: {
+      instruction: 'Опиши функцию шаг-вверх-вправо и вызови её несколько раз, чтобы добраться до монеты, затем подними её.',
+      example: `def step_up_right():\n    move_right()\n    move_up()\n\nfor _ in range(3):\n    step_up_right()\nmove_right()\npick()`,
+      explanation: 'Функции позволяют объединить повторяющиеся действия под одним именем: мы объявляем их через def и вызываем столько раз, сколько нужно.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -356,6 +401,11 @@ export const levels: Level[] = [
     id: 'lvl-009-combo',
     title: 'Три монеты и дверь',
     story: 'Используй переменные, циклы и условия, чтобы собрать монеты и открыть дверь.',
+    task: {
+      instruction: 'Продумай алгоритм, который собирает три монеты, берёт ключ и открывает дверь, используя переменные, цикл и условия.',
+      example: `coins = 0\nsteps = ["right", "pick", "right", "pick", "right", "pick", "right", "pick", "right", "open"]\nfor action in steps:\n    if action == "right":\n        move_right()\n    elif action == "pick":\n        pick()\n        coins += 1\n    elif action == "open":\n        open()`,
+      explanation: 'Повторяем несколько концепций сразу: цикл перебирает шаги, переменная coins помогает считать собранные монеты, а условие if выбирает нужную команду.'
+    },
     map: {
       rows: 10,
       cols: 10,
@@ -403,6 +453,11 @@ export const levels: Level[] = [
     id: 'lvl-010-debug',
     title: 'Отладка ошибки',
     story: 'В коде героя спрятана ошибка. Найди её и исправь, опираясь на подсказки.',
+    task: {
+      instruction: 'Прочитай заготовленный код, найди неверные шаги и исправь их, чтобы герой взял монету, ключ и открыл дверь.',
+      example: `move_up()\nmove_up()\nmove_up()\nmove_up()\npick()\nfor _ in range(4):\n    move_down()\nmove_right()\npick()\nmove_right()\nmove_right()\nopen()`,
+      explanation: 'Отладка — это сравнение ожидаемого результата с тем, что делает программа. Мы анализируем маршрут, исправляем неправильные команды и проверяем, что цель достигнута.'
+    },
     map: {
       rows: 10,
       cols: 10,
