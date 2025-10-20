@@ -90,16 +90,6 @@ export default function App() {
           goalStates={gameResult?.goalsCompleted}
         />
       </aside>
-      <main className="main">
-        <GameStage
-          controller={controller}
-          isRunning={isRunning}
-          result={gameResult}
-          onRun={() => runWithCode(code)}
-          onStop={handleStop}
-          onReset={handleReset}
-        />
-      </main>
       <section className="workspace">
         <CodeWorkspace
           level={level}
@@ -112,6 +102,16 @@ export default function App() {
           gameResult={gameResult}
         />
       </section>
+      <main className="main">
+        <GameStage
+          controller={controller}
+          isRunning={isRunning}
+          result={gameResult}
+          onRun={() => runWithCode(code)}
+          onStop={handleStop}
+          onReset={handleReset}
+        />
+      </main>
     </div>
   );
 }

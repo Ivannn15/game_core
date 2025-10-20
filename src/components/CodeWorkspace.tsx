@@ -29,7 +29,7 @@ export function CodeWorkspace({ level, log, code, onCodeChange, onRun, onCheck, 
       <div className="editor">
         <CodeMirror
           value={code}
-          height="360px"
+          height="100%"
           extensions={extensions}
           onChange={(value) => onCodeChange(value)}
           theme="dark"

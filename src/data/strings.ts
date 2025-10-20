@@ -14,5 +14,8 @@ export const uiText = {
   runSummarySuccess: 'Ура! Цели достигнуты.',
   runSummaryFailPrefix: 'Ещё попробуем:',
   testsTitle: 'Проверки',
-  resultReady: 'Все цели выполнены!'
+  resultReady: 'Все цели выполнены!',
+  taskTitle: 'Задание',
+  taskExampleTitle: 'Пример решения',
+  taskConceptTitle: 'О чём этот урок'
 } as const;
