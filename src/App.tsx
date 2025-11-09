@@ -10,6 +10,7 @@ import { PythonRunner } from './game/pythonRunner';
 import { GameLogEntry, GameResult } from './game/types';
 import { useInterval } from './hooks/useInterval';
 import './styles/app.scss';
+import { HeaderBar } from './components/HeaderBar';
 
 const controller = createGameController();
 const runner = new PythonRunner(controller, friendlyErrors);
@@ -24,6 +25,10 @@ export default function App() {
   const [code, setCode] = useState(levels[0].starter_code);
 
   const level = useMemo(() => levels.find((l) => l.id === selectedLevelId) ?? levels[0], [selectedLevelId]);
+  const levelNumber = useMemo(
+    () => levels.findIndex((item) => item.id === level.id) + 1,
+    [level.id]
+  );
 
   useEffect(() => {
     controller.loadLevel(level);
@@ -78,40 +83,43 @@ export default function App() {
   const displayedHints = level.hints.slice(0, hintStep);
 
   return (
-    <div className="app">
-      <aside className="sidebar">
-        <LevelList levels={levels} current={selectedLevelId} onSelect={setSelectedLevelId} />
-        <TaskPanel
-          level={level}
-          hints={displayedHints}
-          onHintClick={nextHint}
-          onToggleTests={() => setShowTests((prev) => !prev)}
-          showTests={showTests}
-          goalStates={gameResult?.goalsCompleted}
-        />
-      </aside>
-      <section className="workspace">
-        <CodeWorkspace
-          level={level}
-          log={log}
-          code={code}
-          onCodeChange={setCode}
-          onRun={handleExecute}
-          onCheck={handleCheck}
-          isRunning={isRunning}
-          gameResult={gameResult}
-        />
-      </section>
-      <main className="main">
-        <GameStage
-          controller={controller}
-          isRunning={isRunning}
-          result={gameResult}
-          onRun={() => runWithCode(code)}
-          onStop={handleStop}
-          onReset={handleReset}
-        />
-      </main>
+    <div className="page">
+      <HeaderBar currentLevelTitle={level.title} levelNumber={levelNumber} totalLevels={levels.length} />
+      <div className="app">
+        <aside className="sidebar">
+          <LevelList levels={levels} current={selectedLevelId} onSelect={setSelectedLevelId} />
+          <TaskPanel
+            level={level}
+            hints={displayedHints}
+            onHintClick={nextHint}
+            onToggleTests={() => setShowTests((prev) => !prev)}
+            showTests={showTests}
+            goalStates={gameResult?.goalsCompleted}
+          />
+        </aside>
+        <section className="workspace">
+          <CodeWorkspace
+            level={level}
+            log={log}
+            code={code}
+            onCodeChange={setCode}
+            onRun={handleExecute}
+            onCheck={handleCheck}
+            isRunning={isRunning}
+            gameResult={gameResult}
+          />
+        </section>
+        <main className="main">
+          <GameStage
+            controller={controller}
+            isRunning={isRunning}
+            result={gameResult}
+            onRun={() => runWithCode(code)}
+            onStop={handleStop}
+            onReset={handleReset}
+          />
+        </main>
+      </div>
     </div>
   );
 }

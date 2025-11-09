@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -8,9 +10,9 @@ body,
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: #111827;
-  color: #f9fafb;
+  font-family: 'Nunito', 'PT Sans', Arial, sans-serif;
+  background: linear-gradient(135deg, #fdf6d6, #fde8ff 60%, #d6ecff 100%);
+  color: #1f2933;
 }
 
 button {
