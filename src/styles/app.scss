@@ -1,62 +1,75 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
+}
+
 .app {
+  flex: 1;
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr) 420px;
-  grid-template-rows: 100vh;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  height: 100vh;
-  box-sizing: border-box;
+  gap: 1.25rem;
+  min-height: 0;
+}
+
+.sidebar,
+.workspace,
+.main {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  background: #1f2937;
-  border-radius: 12px;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 1.25rem;
   overflow-y: auto;
 }
 
-.main {
-  background: #0f172a;
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-
 .workspace {
-  background: #1f2937;
-  border-radius: 12px;
-  padding: 1rem;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   min-width: 0;
   overflow: hidden;
 }
 
+.main {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 button {
-  background: linear-gradient(90deg, #38bdf8, #6366f1);
-  color: #0f172a;
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  transition: transform 0.1s ease;
+  background: linear-gradient(135deg, #60a5fa, #f472b6);
+  color: #103256;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 10px 20px rgba(96, 165, 250, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 button:disabled {
-  opacity: 0.4;
+  opacity: 0.5;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 button:not(:disabled):hover {
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 24px rgba(244, 114, 182, 0.35);
 }
 
 button:not(:disabled):active {
-  transform: scale(0.98);
+  transform: translateY(1px);
 }
 
 ::-webkit-scrollbar {
@@ -64,6 +77,17 @@ button:not(:disabled):active {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 999px;
+}
+
+@media (max-width: 1200px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .main {
+    order: -1;
+  }
 }

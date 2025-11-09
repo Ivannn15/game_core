@@ -17,5 +17,10 @@ export const uiText = {
   resultReady: 'Все цели выполнены!',
   taskTitle: 'Задание',
   taskExampleTitle: 'Пример решения',
-  taskConceptTitle: 'О чём этот урок'
+  taskConceptTitle: 'О чём этот урок',
+  brandName: 'Кодовые приключения',
+  brandTagline: 'Российская игровая школа программирования',
+  brandDescription: 'Игровые задания и дружелюбные герои помогают ребятам 2–4 классов уверенно делать первые шаги в программировании на Python.',
+  gradeBadge: '2–4 класс • 7–10 лет',
+  currentLevelLabel: 'Текущий уровень'
 } as const;
